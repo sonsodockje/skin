@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>[##_page_title_##]</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body id="[##_body_id_##]">
+    <s_t3>
+      <header>
+        <!-- 공통 시작 -->
+        <!-- 로고 -->
+        <p><a href="[##_blog_link_##]">[##_title_##]</a></p>
+
+        <!-- 상단 지정 메뉴 -->
+        <div id="cataList">[##_category_list_##]</div>
+
+        <ul class="blogMenu">
+          <li><a href="[##_taglog_link_##]">태그</a></li>
+          <li><a href="[##_guestbook_link_##]">방명록</a></li>
+        </ul>
+
+        <!-- image 사용 -->
+        <div class="blogInfo">
+          <div class="blogImage">
+            <img src="[##_image_##]" style="width: 100px; height: 100px" />
+          </div>
+          <div class="blogDesc">
+            <span class="userDes">[##_desc_##]</span>
+            <span class="userID">[##_blogger_##]</span>
+          </div>
+        </div>
+      </header>
+      <!-- 공통 끝-->
+      <!-- 홈커버 시작-->
+      <s_cover_group>
+        <s_cover_rep>
+          <s_cover name="list">
+            <div id="mArticle" class="article_skin">
+              <s_cover_item>
+                <s_cover_item_article_info>
+                  <div class="list_content">
+                    <s_cover_item_thumbnail>
+                      <a href="[##_cover_item_url_##]" class="thumbnail_post"
+                        ><img
+                          src="//i1.daumcdn.net/thumb/C148x148/?fname=[##_cover_item_thumbnail_##]"
+                      /></a>
+                    </s_cover_item_thumbnail>
+                    <a href="[##_cover_item_url_##]" class="link_post">
+                      <strong class="tit_post">[##_cover_item_title_##]</strong>
+                      <p class="txt_post">[##_cover_item_summary_##]</p>
+                    </a>
+                    <div class="detail_info">
+                      <a
+                        href="[##_cover_item_category_url_##]"
+                        class="link_cate"
+                        >[##_cover_item_category_##]</a
+                      >
+                      <span class="txt_bar"></span>
+                      [##_cover_item_date_##]
+                    </div>
+                  </div>
+                </s_cover_item_article_info>
+
+                <s_cover_item_not_article_info>
+                  <div class="list_content">
+                    <s_cover_item_thumbnail>
+                      <a href="[##_cover_item_url_##]" class="thumbnail_post"
+                        ><img
+                          src="//i1.daumcdn.net/thumb/C148x148/?fname=[##_cover_item_thumbnail_##]"
+                      /></a>
+                    </s_cover_item_thumbnail>
+                    <a href="[##_cover_item_url_##]" class="link_post">
+                      <strong class="tit_post">[##_cover_item_title_##]</strong>
+                      <p class="txt_post">[##_cover_item_summary_##]</p>
+                    </a>
+                  </div>
+                </s_cover_item_not_article_info>
+              </s_cover_item>
+
+              <s_cover_url>
+                <a class="btn-more" href="[##_cover_url_##]">더보기</a>
+              </s_cover_url>
+            </div>
+          </s_cover>
+        </s_cover_rep>
+      </s_cover_group>
+
+      <!-- 홈커버 끝-->
+
+      <!-- 사용한 태그 보여줌 -->
+      <s_tag>
+        <div class="tags">
+          <s_tag_rep>
+            <div class="tag-item">
+              <span>#</span>
+              <a href="[##_tag_link_##]">[##_tag_name_##]</a>
+            </div>
+          </s_tag_rep>
+        </div>
+      </s_tag>
+      <!-- 태그 끝 -->
+
+      <!-- 방명록 시작  -->
+      <s_guest>
+        <div class="guestbook">
+          <h3>방명록</h3>
+          <div class="guestWrite">
+            <s_guest_input_form>
+              <div class="guestWrite">
+                <s_guest_member>
+                  <s_guest_form>
+                    <div>
+                      <input
+                        type="text"
+                        name="[##_guest_input_name_##]"
+                        value="[##_guest_name_##]"
+                      />
+                      <label for="name"> : 이름 </label>
+                    </div>
+                    <div>
+                      <input
+                        type="password"
+                        maxlength="8"
+                        name="[##_guest_input_password_##]"
+                        value="[##_guest_password_##]"
+                      />
+                      <label for="password"> : 패스워드 </label>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="[##_guest_input_homepage_##]"
+                        value="[##_guest_homepage_##]"
+                      />
+                      <label for="homepage"> : 홈페이지 </label>
+                    </div>
+                  </s_guest_form>
+                </s_guest_member>
+                <div>
+                  <textarea
+                    name="[##_guest_textarea_body_##]"
+                    cols="30"
+                    rows="6"
+                  ></textarea>
+                </div>
+                <div>
+                  <input
+                    type="submit"
+                    value="등록"
+                    onclick="[##_guest_onclick_submit_##]"
+                  />
+                </div>
+              </div>
+            </s_guest_input_form>
+          </div>
+
+          <div class="guestList">
+            <s_guest_container>
+              <ol id="guestList">
+                <s_guest_rep>
+                  <li id="[##_guest_rep_id_##]">
+                    <div class="[##_guest_rep_class_##]">
+                      <span class="name">[##_guest_rep_name_##]</span>
+                      <span class="date"> [##_guest_rep_date_##]</span>
+                      <span class="control">
+                        <a href="#" onclick="[##_guest_rep_onclick_delete_##]"
+                          >MODIFY/DELETE</a
+                        >
+                        <a href="#" onclick="[##_guest_rep_onclick_reply_##]"
+                          >REPLY</a
+                        >
+                      </span>
+                      <p>[##_guest_rep_desc_##]</p>
+                    </div>
+                    <s_guest_reply_container>
+                      <ul>
+                        <s_guest_reply_rep>
+                          <li id="[##_guest_rep_id_##]">
+                            <div class="[##_guest_rep_class_##]">
+                              <span class="name">[##_guest_rep_name_##]</span>
+                              <span class="date"> [##_guest_rep_date_##]</span>
+                              <span class="control">
+                                <a
+                                  href="#"
+                                  onclick="[##_guest_rep_onclick_delete_##]"
+                                  >MODIFY/DELETE
+                                </a>
+                              </span>
+                              <p>[##_guest_rep_desc_##]</p>
+                            </div>
+                          </li>
+                        </s_guest_reply_rep>
+                      </ul>
+                    </s_guest_reply_container>
+                  </li>
+                </s_guest_rep>
+              </ol>
+            </s_guest_container>
+          </div>
+        </div>
+      </s_guest>
+      <!-- 방명록 끝 -->
+
+      <!-- 리스트 페이지 시작-- -->
+      <s_list>
+        <div class="searchList [##_list_style_##]">
+          <!-- <div <s_list_image>style="background-image:url('[##_list_image_##]')"</s_list_image>>
+            <h3>'[##_list_conform_##]'에 해당되는 글 [##_list_count_##]건</h3>
+            <p>[##_list_description_##]</p>
+          </div> -->
+          <ol id="articleList">
+            <s_list_rep>
+              <li>
+                <!-- <span class="date">[##_list_rep_regdate_##]</span> -->
+                <!-- <a href="[##_list_rep_link_##]">[##_list_rep_title_##]</a> -->
+                <!-- <span class="cnt">[##_list_rep_rp_cnt_##]</span> -->
+                <s_list_rep_thumbnail>
+                  <a href="[##_list_rep_link_##]" id="articleListThumbnail">
+                    <img src="[##_list_rep_thumbnail_##]" />
+                  </a>
+                </s_list_rep_thumbnail>
+              </li>
+            </s_list_rep>
+          </ol>
+        </div>
+      </s_list>
+      <!-- 리스트 페이지 끝 -->
+
+      <!-- 글 시작-- -->
+      <!-- 글 끝 -->
+
+      <!-- 글 페이징 시작-- -->
+      <s_page_rep>
+        <div>
+          <h2>
+            <a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a>
+          </h2>
+          <div>[##_article_rep_desc_##]</div>
+        </div>
+      </s_page_rep>
+      <!-- 글 페이징 끝 -->
+
+      <!-- 페이징 시작-- -->
+      <s_paging>
+        <div class="paging">
+          <a [##_prev_page_##] class="[##_no_more_prev_##]">◀ PREV </a>
+          <span class="numbox">
+            <s_paging_rep>
+              <a [##_paging_rep_link_##] class="num"
+                >[[##_paging_rep_link_num_##]]</a
+              >
+            </s_paging_rep>
+          </span>
+          <a [##_next_page_##] class="[##_no_more_next_##]">NEXT ▶</a>
+        </div>
+      </s_paging>
+      <!-- 페이징 끝 -->
+    </s_t3>
+  </body>
+</html>
