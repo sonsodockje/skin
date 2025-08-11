@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>[##_page_title_##]</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body id="[##_body_id_##]">
     <s_t3>
@@ -12,6 +13,7 @@
         <!-- 로고 -->
         <p><a href="[##_blog_link_##]">[##_title_##]</a></p>
 
+        <button id="show">test</button>
         <!-- 상단 지정 메뉴 -->
         <div id="cataList">[##_category_list_##]</div>
 
@@ -258,4 +260,9 @@
       <!-- 페이징 끝 -->
     </s_t3>
   </body>
+  <script>
+    $("#show").click(function () {
+      $("#cataList").toggle();
+    });
+  </script>
 </html>
