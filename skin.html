@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <title>[##_page_title_##]</title>
@@ -7,7 +7,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
       @theme {
         --color-clifford: #da373d;
       }
@@ -17,12 +19,12 @@
       rel="stylesheet"
     />
   </head>
-  <body id="[##_body_id_##]" class="w-2xl mx-auto">
+  <body id="[##_body_id_##]" class="w-2xl mx-auto bg-slate-100 dark:bg-gray-900 dark:text-white">
     <s_t3>
       <header>
         <!-- 공통 시작 -->
         <!-- 로고 -->
-        <p><a href="[##_blog_link_##]">[##_title_##]</a></p>
+        <a href="[##_blog_link_##]" class="text-gray-800 font-bold dark:text-white">[##_title_##]</a>
 
         <button id="show">test</button>
         <!-- 상단 지정 메뉴 -->
@@ -123,7 +125,7 @@
               <div class="guestWrite">
                 <s_guest_member>
                   <s_guest_form>
-                    <div class="flex flex-row gap-2">
+                    <div class="flex flex-row gap-2 ">
                       <div>
                         <input
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg ps-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-1 pl dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -224,7 +226,7 @@
       </s_guest>
       <!-- 방명록 끝 -->
 
-      <!-- 리스트 페이지 시작-- -->
+      <!-- 리스트 페이지 시작-- (이게 홈커버 안하면 기본, 카테고리 기본) -->
       <s_list>
         <div class="searchList [##_list_style_##]">
           <!-- <div <s_list_image>style="background-image:url('[##_list_image_##]')"</s_list_image>>
@@ -278,6 +280,12 @@
         </div>
       </s_paging>
       <!-- 페이징 끝 -->
+      <!--게시글 시작-->
+      
+      <!--게시글 끝-->
+      <!--하단-->
+      <button id="theme-toggle">다크모드</button>
+      <!--하단 끝-->
     </s_t3>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
@@ -285,5 +293,62 @@
     $("#show").click(function () {
       $("#cataList").toggle();
     });
+
+    // $("#testBtn").click(function () {
+    //   $('html').toggleClass('dark');
+    // });
+
+    $(document).ready(function() {
+    // 요소 선택
+    var themeToggleBtn = $('#theme-toggle');
+    // var themeToggleDarkIcon = $('#theme-toggle-dark-icon');
+    // var themeToggleLightIcon = $('#theme-toggle-light-icon');
+
+    // 페이지 로드 시, 이전 설정에 따라 아이콘 변경
+    // if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    //     themeToggleLightIcon.removeClass('hidden');
+    // } else {
+    //     themeToggleDarkIcon.removeClass('hidden');
+    // }
+
+    // 버튼 클릭 이벤트
+    themeToggleBtn.on('click', function() {
+        // 아이콘 토글
+        // themeToggleDarkIcon.toggleClass('hidden');
+        // themeToggleLightIcon.toggleClass('hidden');
+
+        // 이전에 local storage에 설정된 값이 있을 경우
+        if (localStorage.getItem('color-theme')) {
+            if (localStorage.getItem('color-theme') === 'light') {
+                $('html').addClass('dark');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                $('html').removeClass('dark');
+                localStorage.setItem('color-theme', 'light');
+            }
+        // 이전에 local storage에 설정된 값이 없는 경우
+        } else {
+            if ($('html').hasClass('dark')) {
+                $('html').removeClass('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                $('html').addClass('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+    });
+});
+
+
+
+
   </script>
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
 </html>
