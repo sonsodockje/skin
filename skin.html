@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <title>[##_page_title_##]</title>
     <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body id="[##_body_id_##]">
+  <body id="[##_body_id_##]" class="w-2xl mx-auto">
     <s_t3>
       <header>
         <!-- 공통 시작 -->
@@ -106,52 +117,61 @@
       <!-- 방명록 시작  -->
       <s_guest>
         <div class="guestbook">
-          <h3>방명록</h3>
+          <div class="">방명록</div>
           <div class="guestWrite">
             <s_guest_input_form>
               <div class="guestWrite">
                 <s_guest_member>
                   <s_guest_form>
-                    <div>
-                      <input
-                        type="text"
-                        name="[##_guest_input_name_##]"
-                        value="[##_guest_name_##]"
-                      />
-                      <label for="name"> : 이름 </label>
-                    </div>
-                    <div>
-                      <input
-                        type="password"
-                        maxlength="8"
-                        name="[##_guest_input_password_##]"
-                        value="[##_guest_password_##]"
-                      />
-                      <label for="password"> : 패스워드 </label>
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        name="[##_guest_input_homepage_##]"
-                        value="[##_guest_homepage_##]"
-                      />
-                      <label for="homepage"> : 홈페이지 </label>
+                    <div class="flex flex-row gap-2">
+                      <div>
+                        <input
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg ps-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-1 pl dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          type="text"
+                          name="[##_guest_input_name_##]"
+                          value="[##_guest_name_##]"
+                          placeholder="name"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg ps-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-1 pl dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          type="password"
+                          maxlength="8"
+                          name="[##_guest_input_password_##]"
+                          value="[##_guest_password_##]"
+                          placeholder="password"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          class="invisible bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg ps-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-1 pl dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          type="text"
+                          name="[##_guest_input_homepage_##]"
+                          value="[##_guest_homepage_##]"
+                          placeholder="homepage"
+                        />
+                      </div>
                     </div>
                   </s_guest_form>
                 </s_guest_member>
                 <div>
                   <textarea
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg ps-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-1 pl dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     name="[##_guest_textarea_body_##]"
                     cols="30"
                     rows="6"
                   ></textarea>
                 </div>
                 <div>
-                  <input
+                  <button
+                  class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                     type="submit"
-                    value="등록"
+                    
                     onclick="[##_guest_onclick_submit_##]"
                   />
+                  등록
+                  </button>
                 </div>
               </div>
             </s_guest_input_form>
@@ -260,6 +280,7 @@
       <!-- 페이징 끝 -->
     </s_t3>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   <script>
     $("#show").click(function () {
       $("#cataList").toggle();
