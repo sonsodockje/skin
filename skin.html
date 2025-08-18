@@ -2,57 +2,40 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>[##_page_title_##]</title>
         <link rel="stylesheet" href="./style.css" />
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
 
     <body id="[##_body_id_##]">
         <s_t3>
             <div class="grid-container">
-                <div class="left">
-                    <button class="theme-toggle">다크모드</button>
-                    [##_blog_link_##]
+                <div class="top">
+                    <!-- <button class="theme-toggle">다크모드</button> -->
 
-                    <div
-                        class="w-full p-4 text-center border-b mb-4 border-gray-300 dark:border-zinc-200">
-                        <a
-                            href="[##_blog_link_##]"
-                            class="w-full p-4 text-gray-800 font-bold"
-                            >[##_title_##]</a
-                        >
-                    </div>
-
-                    <button id="show">test</button>
-                    <!-- 상단 지정 메뉴 -->
-
-                    <div id="cataList">[##_category_list_##]</div>
-                    <div
-                        class="flex gap-4 min-w-fit bg-slate-50 rounded-sm text-sm p-2 dark:bg-gray-800">
-                        <a href="[##_taglog_link_##]" class="text-gray-500"
-                            >taglog</a
-                        >
-                        <span class="text-black">|</span>
-                        <a href="[##_guestbook_link_##]" class="text-gray-500"
-                            >guest</a
-                        >
-                    </div>
-
-                    <!-- image 사용 -->
-                    <div class="blogInfo">
-                        <div class="blogImage">
-                            <img
-                                src="[##_image_##]"
-                                style="width: 100px; height: 100px" />
+                    <a href="[##_blog_link_##]" class="blogTitle"
+                        >[##_title_##]</a
+                    >
+                    <div class="header">
+                        <div class="blogInfo">
+                            <div class="blogImage">
+                                <img src="[##_image_##]" />
+                            </div>
+                            <div class="blogDesc">
+                                <span class="userID">[##_blogger_##]</span>
+                                <span class="userDes">[##_desc_##]</span>
+                            </div>
                         </div>
-                        <div class="blogDesc">
-                            <span class="userDes">[##_desc_##]</span>
-                            <span class="userID">[##_blogger_##]</span>
+                        <div id="cataList">[##_category_list_##]</div>
+                        <div class="tag-guest">
+                            <a href="[##_taglog_link_##]" class="">🔗</a>
+                            <a href="[##_guestbook_link_##]" class="">📬</a>
                         </div>
                     </div>
                 </div>
-                <div class="right">
+
+                <div class="bottom">
                     <!-- 홈커버 시작-->
                     <s_cover_group>
                         <s_cover_rep>
@@ -304,42 +287,36 @@
                     <s_paging>
                         <div class="paging">
                             <a [##_prev_page_##] class="[##_no_more_prev_##]"
-                                >◀
+                                >✌️
                             </a>
                             <span class="numbox">
                                 <s_paging_rep>
                                     <a [##_paging_rep_link_##] class="num"
-                                        >[[##_paging_rep_link_num_##]]</a
+                                        >[##_paging_rep_link_num_##]</a
                                     >
                                 </s_paging_rep>
                             </span>
                             <a [##_next_page_##] class="[##_no_more_next_##]"
-                                >▶</a
+                                >✌️</a
                             >
                         </div>
                     </s_paging>
                     <!-- 페이징 끝 -->
 
                     <!--글 시작-->
-                    <div class="flex flex-col gap-4">
-                        <div class="">
-                            <s_article_rep>
-                                <div class="text-center">
-                                    <p href="[##_article_rep_category_link_##]">
-                                        [##_article_rep_category_##]
-                                    </p>
-                                    <p href="[##_article_rep_link_##]">
-                                        [##_article_rep_title_##]
-                                    </p>
-                                    [##_article_rep_date_##]
-                                </div>
-
-                                <div
-                                    class="bg-orange-400 dark:bg-orange-600 text-center text-white p-2">
-                                    [##_article_rep_desc_##]
-                                </div>
-                            </s_article_rep>
-                        </div>
+                    <div class="article">
+                        <s_article_rep>
+                            <div class="">
+                                <a href="[##_article_rep_category_link_##]">
+                                    [##_article_rep_category_##]
+                                </a>
+                                <p href="[##_article_rep_link_##]">
+                                    [##_article_rep_title_##]
+                                </p>
+                                [##_article_rep_date_##]
+                                [##_article_rep_desc_##]
+                            </div>
+                        </s_article_rep>
 
                         <s_ad_div>
                             <div class="admin">
@@ -362,12 +339,14 @@
                                 >
                             </div>
                         </s_ad_div>
+
                         <s_tag_label>
                             <div class="tagTrail">
                                 <span class="tagText">TAG </span>
                                 [##_tag_label_rep_##]
                             </div>
                         </s_tag_label>
+
                         <s_index_article_rep>
                             <div class="list_content">
                                 <s_article_rep_thumbnail>
@@ -466,5 +445,13 @@
         } else {
             document.documentElement.classList.remove("dark");
         }
+
+        $("a.link_tit").html("");
+        $(".category_list").prepend('<li><a href="/category">All</a></li>');
+
+        $(document).ready(function () {
+            $(".another_category_color_gray").css("border-color", "initial");
+            $(".another_category").css("border", "initial");
+        });
     </script>
 </html>

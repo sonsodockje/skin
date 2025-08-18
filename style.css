@@ -1,18 +1,77 @@
-@media screen and (max-width: 768px) {
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Outfit:wght@100..900&display=swap");
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 12px;
+    color: #303030;
+    font-family: "Asta Sans", sans-serif;
 }
 
 a,
 li,
 ul {
     text-decoration: none;
-    color: #000000;
+    color: #303030;
     list-style-type: none;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.815);
+    width: 100%;
+    height: 100vh;
+}
+
+.grid-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px;
+    padding-bottom: 50px;
+    display: grid;
+
+    /* 기존 코드 */
+    grid-template-rows: auto 1fr;
+    /* 새로 추가 */
+    height: 100%;
+    overflow: hidden; /* .grid-container에 스크롤바가 생기는 것을 막습니다. */
+}
+
+.top {
+    /* height: 100%; /* 이 줄을 삭제합니다. */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.bottom {
+    margin: 0 auto;
+
+    /* height: 100%; /* 이 줄을 삭제합니다. */
+    overflow: auto; /* .bottom 요소에만 스크롤이 생기도록 합니다. */
+    padding: 10px;
+} /* 웹킷 기반 브라우저 (Chrome, Safari, Edge)에서 스크롤바 숨기기 */
+.bottom::-webkit-scrollbar {
+    width: 0;
+}
+/* Firefox에서 스크롤바 숨기기 */
+.bottom {
+    scrollbar-width: none;
+}
+.blogTitle {
+    font-family: "Outfit", sans-serif;
+    display: block;
+    font-weight: 500px;
+    padding: 20px 0 5px 0;
+    font-size: 24px;
+}
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px;
+    align-items: center;
+}
+.blogInfo {
+    text-align: left;
 }
 
 /* 태그 영역 */
@@ -21,13 +80,12 @@ ul {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
-    background-color: coral;
+    padding: 2rem 0;
 }
 
 .tag-item {
     padding: 2px;
     border-radius: 4px;
-    background-color: #f0f0f0;
     border: #333 solid 1px;
     display: inline-block;
     font-size: 14px;
@@ -37,11 +95,11 @@ ul {
 /* 게시물 리스트 영역 */
 #articleList {
     list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
     gap: 10px;
-    justify-content: flex-start;
 }
 #articleListThumbnail {
     display: block;
@@ -56,54 +114,10 @@ ul {
     border-radius: 0.2rem;
 }
 
-body {
-    background-color: rgb(255, 196, 0);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-
-.grid-container {
-    max-width: 1200px;
-
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 10px;
-
-    width: 100%; /* 부모 너비를 따라가도록 수정 */
-    height: 100%; /* 부모(body)의 높이를 100% 상속받습니다. */
-    margin: auto;
-}
-
-.left {
-    /* left 요소의 높이가 부모(grid-container)에 맞춰지도록 설정 */
-    height: 100%;
-    /* 내부 콘텐츠 정렬을 위한 스타일 추가 */
-    display: flex;
-    flex-direction: column;
-}
-
-.right {
-    /* right 요소의 높이가 부모(grid-container)에 맞춰지도록 설정 */
-    height: 100%;
-
-    overflow: auto; /* 이 속성을 추가하여 이 영역만 스크롤되도록 합니다. */
-    padding: 10px;
-} /* 웹킷 기반 브라우저 (Chrome, Safari, Edge)에서 스크롤바 숨기기 */
-.right::-webkit-scrollbar {
-    width: 0;
-}
-
-/* Firefox에서 스크롤바 숨기기 */
-.right {
-    scrollbar-width: none;
-}
 .paging {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-
+    margin: 0 auto;
+    padding: 5rem 0;
+    width: 480px;
     display: flex;
     justify-content: space-between;
 }
@@ -113,4 +127,62 @@ body {
 }
 .dark body {
     background-color: #343944;
+}
+
+.blogInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 2rem 0;
+}
+.blogImage {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.blogImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.blogDesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category_list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.article {
+    width: 480px;
+}
+
+@media screen and (max-width: 768px) {
+    * {
+        font-size: 14px;
+    }
+    #articleList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .article {
+        width: 100%;
+    }
+}
+
+/* 글 더보기 보더 숨기기 */
+.another_category_color_gray {
+    border-color: none;
+}
+.another_category {
+    border: none;
 }
